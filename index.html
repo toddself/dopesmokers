@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+  <title>How many Dopesmokers</title>
+</head>
+<body>
+  Duration: <input class="js-time" type="text"> is <input class="js-result" type="text"> Dopesmokers<br>
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hIw7oeZKpZc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  <script>
+    function convertTime (time) {
+      const [h, m=0, s=0] = time.split(':').map(n => {
+        const v = parseInt(n, 10)
+        if (Number.isNaN(v)) return 0
+        return v
+      })
+      console.log('h', h, 'm', m, 's', s)
+      const seconds = (h * 60 * 60) + (m * 60) + s
+      console.log(seconds)
+      return seconds
+    }
+    const el = document.querySelector('.js-time')
+    const res = document.querySelector('.js-result')
+    const dopeSmoker = 3825
+    el.oninput = (evt) => { 
+      console.log(evt.target.value)
+      res.value = convertTime(evt.target.value) / dopeSmoker 
+    }
+  </script>
+</body>
