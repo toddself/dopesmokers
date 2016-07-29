@@ -24,22 +24,24 @@
   </p>
   </div>
   <script>
+    const nan = Number.isNaN || isNaN
     function convertTime (time) {
-      const [h, m=0, s=0] = time.split(':').map(n => {
+      const dur = time.split(':').map(function (n) {
         const v = parseInt(n, 10)
-        if (Number.isNaN(v)) return 0
+        if (nan(v)) return 0
         return v
       })
-      console.log('h', h, 'm', m, 's', s)
+      console.log(dur)
+      const h = dur[0] || 0
+      const m = dur[1] || 0
+      const s = dur[2] || 0
       const seconds = (h * 60 * 60) + (m * 60) + s
-      console.log(seconds)
       return seconds
     }
     const el = document.querySelector('.js-time')
     const res = document.querySelector('.js-result')
     const dopeSmoker = 3815
-    el.oninput = (evt) => { 
-      console.log(evt.target.value)
+    el.oninput = function (evt) { 
       res.value = convertTime(evt.target.value) / dopeSmoker 
     }
   </script>
