@@ -2,11 +2,27 @@
 <head>
   <title>How many Dopesmokers</title>
   <link rel="stylesheet" href="https://npmcdn.com/tachyons@4.0.4/css/tachyons.min.css">
+  <style>
+    .back {
+      background-image: url('background.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      background-color: #126cb2;
+    }
+  </style>
 </head>
 <body>
-  <h1 class="f-headline">How many Dopesmokers is this?</h1>
-  <p class="f2">Duration: <input class="js-time" type="text"> is <input class="js-result" type="text"> Dopesmokers</p>
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hIw7oeZKpZc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  <div class="back">
+  <h1 class="f1" style="text-align: center">How many Dopesmokers is this?</h1>
+  <p class="f3" style="text-align: center">Duration: <input class="js-time" type="text" placeholder="hh:mm:ss"> is <input class="js-result" type="text"> Dopesmokers</p>
+  <p style="display: flex; justify-content: center; align-items: center">
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hIw7oeZKpZc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </p>
+  </div>
   <script>
     function convertTime (time) {
       const [h, m=0, s=0] = time.split(':').map(n => {
